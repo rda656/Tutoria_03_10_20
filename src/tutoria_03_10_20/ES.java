@@ -11,19 +11,16 @@ public class ES {
 
     public static int leerEntero() {
         Scanner teclado = new Scanner(System.in);
-        int numero = 0;
-        boolean numeroCorrecto = false;
+                
         do{
             try {
-                numero = teclado.nextInt();
-                numeroCorrecto = true;
+                return teclado.nextInt();
             }
             catch(InputMismatchException e){
                 System.err.println("Error. No ha introducido un número entero");
                 teclado.next();
             }
-        }while(numeroCorrecto == false);
-        return numero;
+        }while(true);
     }
     
     public static int leerEntero(String mensaje) {

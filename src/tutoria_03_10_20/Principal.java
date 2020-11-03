@@ -1,3 +1,4 @@
+// https://github.com/rda656/Tutoria_03_10_20
 package tutoria_03_10_20;
 
 import java.util.Scanner;
@@ -27,7 +28,16 @@ public class Principal {
                     System.out.println("Saliendo....");
                     break;
                 case 1:
-                    tablaMultiplicar();
+                    int n;
+                    do{
+                        System.out.print("Introduzca el valor de la tabla de multiplicar que quiere mostrar: ");
+                        n = teclado.nextInt();
+                        if(n < 1 || n > 10){
+                            System.err.println("Error. El valor tiene que estar comprendido entre 1 y 10.");
+                        }
+                    }while(n < 1 || n > 10);
+                    
+                    tablaMultiplicar(n);
                     break;
                 case 2:
                     adivinarNumero();
@@ -39,36 +49,20 @@ public class Principal {
         }while(opcion != 0);
     }
     
-    public static void tablaMultiplicar(){
-        Scanner teclado = new Scanner (System.in);
-        int numero, resultado;
+    public static void tablaMultiplicar(int numero){
+        int resultado;
                 
         System.out.println("Tabla de multiplicar.");
-        System.out.println("---------------------");
-        do{
-            System.out.print("Introduzca el valor de la tabla de multiplicar que quiere mostrar: ");
-            numero = teclado.nextInt();
-            if(numero < 1 || numero > 10){
-                System.err.println("Error. El valor tiene que estar comprendido entre 1 y 10.");
-            }
-        }while(numero < 1 || numero > 10);
-        
+        System.out.println("---------------------");   
         System.out.println("La tabla de multiplicar del " + numero + " es la siguiente:");
        
         for(int i = 0; i <= 10; i++){ // i++, i = i+1
             resultado = numero * i;
             System.out.println(numero + " x " + i + " = " + resultado);
         }
-        
-        boolean r;
-        do{
-            System.out.println("");
-            r = false;
-        }while(r == true);
     }
     
     public static void adivinarNumero(){
-        Scanner teclado = new Scanner(System.in);
         int numeroBuscado, numeroLeido;
         
         // Vamos a crear un número aleatorio entre 0 y 100
@@ -79,7 +73,7 @@ public class Principal {
         System.out.println("Adivine el número secreto. Está comprendido entre 0 y 100.");
         do{
             System.out.print("Introduzca un número: ");
-            numeroLeido = teclado.nextInt();
+            numeroLeido = ES.leerEntero();
             
             if(numeroLeido > numeroBuscado)
                 System.out.println("El número que tiene que adivinar es más pequeño.");
