@@ -28,16 +28,15 @@ public class Principal {
                     System.out.println("Saliendo....");
                     break;
                 case 1:
-                    int n;
-                    do{
-                        System.out.print("Introduzca el valor de la tabla de multiplicar que quiere mostrar: ");
-                        n = teclado.nextInt();
-                        if(n < 1 || n > 10){
-                            System.err.println("Error. El valor tiene que estar comprendido entre 1 y 10.");
-                        }
-                    }while(n < 1 || n > 10);
-                    
+                    /*System.out.print("Introduzca un número entre 0 y 10: ");
+                    int n = ES.leerEntero(0, 10);
                     tablaMultiplicar(n);
+                    */
+                    /*
+                    System.out.print("Introduzca un número entre 0 y 10: ");
+                    tablaMultiplicar(ES.leerEntero(0, 10));
+                    */
+                    tablaMultiplicar(ES.leerEntero(0, 10, "Introduzca un número entre 0 y 10: "));
                     break;
                 case 2:
                     adivinarNumero();
@@ -72,8 +71,11 @@ public class Principal {
         System.out.println("-------------------");
         System.out.println("Adivine el número secreto. Está comprendido entre 0 y 100.");
         do{
+            /*
             System.out.print("Introduzca un número: ");
             numeroLeido = ES.leerEntero();
+            */
+            numeroLeido = ES.leerEntero("Introduzca un número: ");
             
             if(numeroLeido > numeroBuscado)
                 System.out.println("El número que tiene que adivinar es más pequeño.");
